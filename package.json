@@ -1,0 +1,60 @@
+{
+  "name": "@sertxito/mcpee-cloud",
+  "version": "0.1.0",
+  "description": "MCPEE Cloud Boost for Azure and AWS: agents, skills, prompts, specs and evals for enterprise cloud architecture and operations.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "mcpee.json",
+    "agents",
+    "instructions",
+    "specs",
+    "skills",
+    "prompts",
+    "evals",
+    "examples",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "validate:manifest": "node scripts/validate-manifest.mjs",
+    "pack:check": "npm pack --dry-run",
+    "validate": "npm run validate:manifest && npm run pack:check"
+  },
+  "keywords": [
+    "mcpee",
+    "cloud",
+    "azure",
+    "aws",
+    "iac",
+    "devops",
+    "well-architected",
+    "agents",
+    "skills"
+  ],
+  "author": "Sertxito",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sertxito/boost_cloud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sertxito/boost_cloud/issues"
+  },
+  "homepage": "https://github.com/Sertxito/boost_cloud#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@mcpee/core": "^0.1.0"
+  }
+}
