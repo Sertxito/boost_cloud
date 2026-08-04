@@ -1,0 +1,252 @@
+{
+  "instructions/aws-appsync.instructions.md": {
+    "sources": [
+      {
+        "url": "https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-welcome.html",
+        "label": "AWS AppSync Event API",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://docs.aws.amazon.com/appsync/latest/devguide/resolver-reference-js-version.html",
+        "label": "APPSYNC_JS Runtime Reference",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/aws-cloudformation-cdk.instructions.md": {
+    "sources": [
+      {
+        "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html",
+        "label": "CloudFormation Best Practices",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://docs.aws.amazon.com/cdk/v2/guide/best-practices.html",
+        "label": "CDK Best Practices",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/aws-naming.instructions.md": {
+    "sources": [
+      {
+        "url": "https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html",
+        "label": "AWS Tagging Best Practices",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/ops_org_cloud_model.html",
+        "label": "Well-Architected OPS01",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-durable-functions-csharp.instructions.md": {
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview",
+        "label": "Durable Functions Overview",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-functions-csharp.instructions.md": {
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library",
+        "label": "Azure Functions .NET Class Library",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-functions-typescript.instructions.md": {
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node",
+        "label": "Azure Functions Node.js Reference",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-logic-apps-power-automate.instructions.md": {
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language",
+        "label": "Workflow Definition Language",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config",
+        "label": "Logic Apps Limits and Configuration",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-naming.instructions.md": {
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming",
+        "label": "CAF Naming Convention",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations",
+        "label": "CAF Resource Abbreviations",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+        "label": "Azure Resource Name Rules",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-verified-modules-bicep.instructions.md": {
+    "sources": [
+      {
+        "url": "https://azure.github.io/Azure-Verified-Modules/",
+        "label": "AVM Documentation",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Azure/Azure-Verified-Modules/refs/heads/main/docs/static/module-indexes/BicepResourceModules.csv",
+        "label": "AVM Bicep Module Index",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/azure-verified-modules-terraform.instructions.md": {
+    "sources": [
+      {
+        "url": "https://azure.github.io/Azure-Verified-Modules/",
+        "label": "AVM Documentation",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://raw.githubusercontent.com/Azure/Azure-Verified-Modules/refs/heads/main/docs/static/module-indexes/TerraformResourceModules.csv",
+        "label": "AVM Terraform Module Index",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/bicep-code-best-practices.instructions.md": {
+    "sources": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/best-practices",
+        "label": "Bicep Best Practices",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/generate-modern-terraform-code-for-azure.instructions.md": {
+    "sources": [
+      {
+        "url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+        "label": "Terraform AzureRM Provider",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/github-actions-ci-cd-best-practices.instructions.md": {
+    "sources": [
+      {
+        "url": "https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions",
+        "label": "GitHub Actions Security Hardening",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      },
+      {
+        "url": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-syntax-for-github-actions",
+        "label": "GitHub Actions Workflow Syntax",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/kubernetes-manifests.instructions.md": {
+    "sources": [
+      {
+        "url": "https://kubernetes.io/docs/concepts/workloads/pods/",
+        "label": "Kubernetes Pods",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/security-and-owasp.instructions.md": {
+    "sources": [
+      {
+        "url": "https://owasp.org/www-project-top-ten/",
+        "label": "OWASP Top Ten",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/terraform-azure.instructions.md": {
+    "sources": [
+      {
+        "url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+        "label": "Terraform AzureRM Provider",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  },
+  "instructions/terraform.instructions.md": {
+    "sources": [
+      {
+        "url": "https://developer.hashicorp.com/terraform/language",
+        "label": "Terraform Language Reference",
+        "lastChecked": null,
+        "etag": null,
+        "lastModified": null
+      }
+    ]
+  }
+}

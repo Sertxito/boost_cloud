@@ -27,6 +27,12 @@ If you changed multiple artifacts, also run:
 npm run validate
 ```
 
+If you added or modified an `instructions/*.instructions.md` file:
+
+```bash
+npm run check:docs
+```
+
 ## What to Include in a PR
 
 - Clear description of what changed and why.
@@ -37,8 +43,15 @@ npm run validate
 ## Capability Integrity Rules
 
 - Keep `mcpee.json` as the source of truth.
-- Every capability path in `mcpee.json` must exist.
+- Every capability path in `mcpee.json` must exist on disk.
 - Avoid partial capability additions (agent without specs/prompts/evals/examples).
+- New capabilities must appear in [docs/coverage-matrix.md](docs/coverage-matrix.md).
+
+## Instruction File Rules
+
+- Every `instructions/*.instructions.md` file that is based on official docs **must** have a `Source:` line referencing those docs.
+- Add or update the corresponding entry in `docs/doc-sources.json` so the weekly freshness check can track it.
+- Run `npm run check:docs:update` locally to set the initial ETag/Last-Modified baseline for new entries.
 
 ## Commit Guidance
 

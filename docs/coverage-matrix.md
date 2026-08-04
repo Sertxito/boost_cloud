@@ -4,10 +4,10 @@ This matrix describes the implemented capability coverage in `mcpee-cloud` for A
 
 ## Summary
 
-- Total capabilities: 34
+- Total capabilities: 36
 - Cross-cloud: 4
-- Azure: 14
-- AWS: 16
+- Azure: 15
+- AWS: 17
 
 ## Domain Matrix
 
@@ -28,8 +28,8 @@ This matrix describes the implemented capability coverage in `mcpee-cloud` for A
 | Messaging / Integration | - | `azure.messaging.integration` | `aws.messaging.event-driven` | Covered |
 | Observability | - | `azure.observability.monitoring` | `aws.observability.cloudwatch-xray` | Covered |
 | Cost / FinOps | - | `azure.cost.optimization` | `aws.cost.optimization` | Covered |
-| API Management / Gateway | - | `azure.api-management.design` | - | Covered (Azure-only) |
-| Incident Triage | - | - | `aws.operations.incident-triage` | Covered (AWS-only) |
+| API Management / Gateway | - | `azure.api-management.design` | `aws.api-gateway.design` | Covered |
+| Incident Triage | - | `azure.operations.incident-triage` | `aws.operations.incident-triage` | Covered |
 
 ## Capability Inventory
 
@@ -56,6 +56,7 @@ This matrix describes the implemented capability coverage in `mcpee-cloud` for A
 12. `azure.observability.monitoring`
 13. `azure.cost.optimization`
 14. `azure.api-management.design`
+15. `azure.operations.incident-triage`
 
 ### AWS
 
@@ -75,6 +76,7 @@ This matrix describes the implemented capability coverage in `mcpee-cloud` for A
 14. `aws.operations.incident-triage`
 15. `aws.reliability.disaster-recovery`
 16. `aws.devops.cicd`
+17. `aws.api-gateway.design`
 
 ## Notes
 

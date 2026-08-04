@@ -1,22 +1,22 @@
 # mcpee-cloud
 
-Boost cloud para MCPEE centrado en Azure y AWS.
+[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+[![Docs Freshness](../../actions/workflows/docs-freshness.yml/badge.svg)](../../actions/workflows/docs-freshness.yml)
+
+Cloud boost for MCPEE — 36 enterprise capabilities covering Azure and AWS, ready to plug into any MCPEE-compatible agent runtime.
 
 ## Overview
 
-Este paquete agrupa agentes, skills, instrucciones y artefactos de calidad para acelerar diseño, revisión y troubleshooting cloud enterprise en dos proveedores:
+Agents, skills, instructions, prompts, specs, evals, and examples for cloud architecture, operations, security, and DevOps across two providers:
 
-- Azure
-- AWS
+| Provider | Capabilities |
+|---|---|
+| Cross-cloud | 4 (Well-Architected, Security, DR, DevOps) |
+| Azure | 15 |
+| AWS | 17 |
 
-El objetivo de la versión `0.1.0` es dejar una base sólida y coherente de capacidades cloud reales, conectadas por `mcpee.json`.
-
-## Features
-
-- Capacidades cloud iniciales en arquitectura, IaC, gobernanza, integración, incident response y DevOps.
-- Especialistas por proveedor (Azure y AWS) reutilizando agentes ya curados del repositorio.
-- Soporte para workflows de calidad mediante prompts, specs, evals y ejemplos por capability.
-- Validación automática de referencias para evitar rutas rotas en el manifiesto.
+Every capability is fully wired in `mcpee.json` — no partial entries, no broken paths.
+See [docs/coverage-matrix.md](docs/coverage-matrix.md) for the full domain breakdown.
 
 ## Quick Start
 
@@ -26,30 +26,50 @@ npm install mcpee-cloud
 npx mcpee doctor
 ```
 
-Validar el contenido del boost localmente:
+## Scripts
 
-```bash
-npm run validate
-```
+| Command | What it does |
+|---|---|
+| `npm run validate` | Manifest integrity + dry-run pack |
+| `npm run validate:manifest` | Checks all paths in `mcpee.json` exist on disk |
+| `npm run pack:check` | Dry-run `npm pack` to catch missing `files` entries |
+| `npm run check:docs` | HEAD-checks all official source URLs in `docs/doc-sources.json` |
+| `npm run check:docs:update` | Same check, then writes new ETags/Last-Modified as baseline |
 
 ## Structure
 
 ```text
-agents/        -> especialistas por dominio
-skills/        -> procedimientos operativos
-instructions/  -> guías y buenas prácticas
-prompts/       -> plantillas de interacción por capability
-specs/         -> criterios técnicos y checklists
-evals/         -> criterios de evaluación
-examples/      -> ejemplos de salida esperada
-mcpee.json     -> manifiesto de capacidades
+agents/            specialists per domain
+skills/            operational procedures
+instructions/      coding and architecture guidelines (with source URLs)
+prompts/           per-capability interaction templates
+specs/             technical criteria and checklists
+evals/             evaluation criteria
+examples/          expected output shapes
+docs/
+  coverage-matrix.md   domain coverage overview
+  doc-sources.json     official source URL registry for freshness tracking
+mcpee.json         capability manifest (source of truth)
 ```
+
+## Doc Freshness
+
+Official cloud docs change. A [weekly CI job](.github/workflows/docs-freshness.yml) HEAD-checks every URL in `docs/doc-sources.json` and opens a GitHub issue when:
+
+- A source URL returns 4xx/5xx (broken link)
+- An ETag or Last-Modified header differs from the stored baseline (content drift)
+
+To refresh the baseline after reviewing and updating an instruction file:
+
+```bash
+npm run check:docs:update
+```
+
+Or trigger the `docs-freshness` workflow manually with **Update baseline** enabled.
 
 ## Local Customization
 
-No modificar contenido directamente en `node_modules/mcpee-cloud`.
-
-Usar carpetas de customización en tu proyecto:
+Do not edit files directly inside `node_modules/mcpee-cloud`. Use project-level override folders:
 
 ```text
 .mcpee/generated-skills/cloud/
@@ -60,8 +80,8 @@ Usar carpetas de customización en tu proyecto:
 
 ## Contributing
 
-Collaboration guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Security
 
-Security reporting process is in [SECURITY.md](SECURITY.md).
+See [SECURITY.md](SECURITY.md).
