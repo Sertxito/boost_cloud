@@ -57,5 +57,10 @@
   },
   "peerDependencies": {
     "@mcpee/core": "^0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@mcpee/core": {
+      "optional": true
+    }
   }
 }
