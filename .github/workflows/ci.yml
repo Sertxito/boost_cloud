@@ -79,7 +79,6 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v17
         with:
           globs: "**/*.md"
-        continue-on-error: true
 
   security:
     if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
@@ -94,4 +93,3 @@ jobs:
           scan-type: 'fs'
           scan-ref: '.'
           severity: 'MEDIUM,HIGH,CRITICAL'
-        continue-on-error: true
