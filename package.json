@@ -1,5 +1,5 @@
 {
-  "name": "@sertxito/mcpee-cloud",
+  "name": "mcpee-cloud",
   "version": "0.1.0",
   "description": "MCPEE Cloud Boost for Azure and AWS: agents, skills, prompts, specs and evals for enterprise cloud architecture and operations.",
   "type": "module",
@@ -52,9 +52,6 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "peerDependencies": {
     "@mcpee/core": "^0.1.0"

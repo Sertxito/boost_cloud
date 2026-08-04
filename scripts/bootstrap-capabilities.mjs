@@ -282,7 +282,7 @@ const capabilities = [
 
 const manifest = {
   schemaVersion: "1.0",
-  name: "@sertxito/mcpee-cloud",
+  name: "mcpee-cloud",
   version: "0.1.0",
   type: "boost",
   domain: "cloud",

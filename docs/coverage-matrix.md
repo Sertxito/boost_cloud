@@ -1,6 +1,6 @@
 # Coverage Matrix v0.1.0
 
-This matrix describes the implemented capability coverage in `@sertxito/mcpee-cloud` for Azure and AWS.
+This matrix describes the implemented capability coverage in `mcpee-cloud` for Azure and AWS.
 
 ## Summary
 

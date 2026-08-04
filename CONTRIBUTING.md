@@ -1,4 +1,4 @@
-# Contributing to @sertxito/mcpee-cloud
+# Contributing to mcpee-cloud
 
 Thank you for contributing.
 

@@ -1,4 +1,4 @@
 export default {
-  name: "@sertxito/mcpee-cloud",
+  name: "mcpee-cloud",
   type: "boost"
 };
