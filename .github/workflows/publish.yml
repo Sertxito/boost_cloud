@@ -31,6 +31,27 @@ jobs:
       - name: Validate quality gates
         run: npm run quality
 
+      - name: Bump version from npm registry
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PKG_NAME="$(npm pkg get name | tr -d '"')"
+          CURRENT_VERSION="$(npm pkg get version | tr -d '"')"
+          PUBLISHED_VERSION="$(npm view "$PKG_NAME" version 2>/dev/null || true)"
+
+          BASE_VERSION="$CURRENT_VERSION"
+          if [ -n "$PUBLISHED_VERSION" ]; then
+            BASE_VERSION="$PUBLISHED_VERSION"
+          fi
+
+          NEXT_VERSION="$(node -e "const [a,b,c]=process.argv[1].split('.').map(Number); if([a,b,c].some(Number.isNaN)){process.exit(1)}; console.log([a,b,c+1].join('.'))" "$BASE_VERSION")"
+
+          npm version "$NEXT_VERSION" --no-git-tag-version
+          echo "version=$NEXT_VERSION" >> "$GITHUB_OUTPUT"
+          echo "Published version: ${PUBLISHED_VERSION:-none}; next version: $NEXT_VERSION"
+
       - name: Run semantic release
         run: npm run release
         env:
