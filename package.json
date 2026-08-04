@@ -24,7 +24,9 @@
   "scripts": {
     "validate:manifest": "node scripts/validate-manifest.mjs",
     "pack:check": "npm pack --dry-run",
-    "validate": "npm run validate:manifest && npm run pack:check"
+    "validate": "npm run validate:manifest && npm run pack:check",
+    "quality": "npm run validate",
+    "release": "npm publish --access public"
   },
   "keywords": [
     "mcpee",
