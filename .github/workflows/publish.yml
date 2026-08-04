@@ -2,14 +2,14 @@ name: Publish to NPM
 
 on:
   push:
-    tags:
-      - "v*.*.*"
+    branches:
+      - main
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       id-token: write
 
     steps:
@@ -25,8 +25,6 @@ jobs:
 
       - name: Validate package metadata
         run: |
-          TAG_VERSION="${GITHUB_REF_NAME#v}"
-          PKG_VERSION="$(node -p \"require('./package.json').version\")"
           PKG_NAME="$(node -p \"require('./package.json').name\")"
 
           if [ "$PKG_NAME" != "@sertxito/mcpee-cloud" ]; then
@@ -34,21 +32,35 @@ jobs:
             exit 1
           fi
 
-          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
-            echo "❌ package.json version ($PKG_VERSION) does not match tag ($TAG_VERSION)"
-            exit 1
-          fi
-
           echo "✅ package metadata is valid"
 
-      - name: Validate tag points to main history
+      - name: Read package version
+        id: pkg
         run: |
-          git fetch origin main --depth=1
-          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
-            echo "❌ Tag must reference a commit reachable from main"
-            exit 1
+          PKG_VERSION="$(node -p \"require('./package.json').version\")"
+          echo "version=$PKG_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check if version already exists in npm
+        id: npm
+        run: |
+          if npm view "@sertxito/mcpee-cloud@${{ steps.pkg.outputs.version }}" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "ℹ️ Version ${{ steps.pkg.outputs.version }} is already published"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "✅ Version ${{ steps.pkg.outputs.version }} is new"
           fi
-          echo "✅ Tag commit is reachable from main"
+
+      - name: Check npm token availability
+        id: token
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "$NPM_TOKEN" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Validate manifest
         run: npm run validate:manifest
@@ -57,16 +69,17 @@ jobs:
         run: npm pack --dry-run
 
       - name: Publish package
-        if: ${{ secrets.NPM_TOKEN != '' }}
+        if: steps.token.outputs.available == 'true' && steps.npm.outputs.exists == 'false'
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Skip publish when token is missing
-        if: ${{ secrets.NPM_TOKEN == '' }}
-        run: echo "⚠️ NPM_TOKEN is not configured. Skipping npm publish step."
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          generate_release_notes: true
+      - name: Skip publish summary
+        if: steps.token.outputs.available != 'true' || steps.npm.outputs.exists != 'false'
+        run: |
+          if [ "${{ steps.token.outputs.available }}" != "true" ]; then
+            echo "⚠️ NPM_TOKEN is not configured. Skipping publish."
+          fi
+          if [ "${{ steps.npm.outputs.exists }}" != "false" ]; then
+            echo "ℹ️ Version already published. Skipping publish."
+          fi
