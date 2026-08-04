@@ -1,4 +1,4 @@
-# @sertxito/mcpee-cloud
+# mcpee-cloud
 
 Boost cloud para MCPEE centrado en Azure y AWS.
 
@@ -22,7 +22,7 @@ El objetivo de la versión `0.1.0` es dejar una base sólida y coherente de capa
 
 ```bash
 npm install @mcpee/core
-npm install @sertxito/mcpee-cloud
+npm install mcpee-cloud
 npx mcpee doctor
 ```
 
@@ -47,7 +47,7 @@ mcpee.json     -> manifiesto de capacidades
 
 ## Local Customization
 
-No modificar contenido directamente en `node_modules/@sertxito/mcpee-cloud`.
+No modificar contenido directamente en `node_modules/mcpee-cloud`.
 
 Usar carpetas de customización en tu proyecto:
 
