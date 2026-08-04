@@ -21,9 +21,9 @@ See [docs/coverage-matrix.md](docs/coverage-matrix.md) for the full domain break
 ## Quick Start
 
 ```bash
-npm install @mcpee/core
 npm install mcpee-cloud
-npx mcpee doctor
+# Optional: install the MCPEE core runtime when you need it
+npm install @mcpee/core
 ```
 
 ## Scripts
