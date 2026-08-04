@@ -57,3 +57,11 @@ Usar carpetas de customización en tu proyecto:
 .mcpee/knowledge/
 .mcpee/memory/
 ```
+
+## Contributing
+
+Collaboration guidelines are in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Security
+
+Security reporting process is in [SECURITY.md](SECURITY.md).
