@@ -1,85 +1,39 @@
-name: Publish to NPM
+name: Release
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+          node-version: 24
+          registry-url: https://registry.npmjs.org
 
-      - name: Validate package metadata
-        run: |
-          PKG_NAME="$(node -p \"require('./package.json').name\")"
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund --legacy-peer-deps
 
-          if [ "$PKG_NAME" != "@sertxito/mcpee-cloud" ]; then
-            echo "❌ package name must be @sertxito/mcpee-cloud"
-            exit 1
-          fi
+      - name: Validate quality gates
+        run: npm run quality
 
-          echo "✅ package metadata is valid"
-
-      - name: Read package version
-        id: pkg
-        run: |
-          PKG_VERSION="$(node -p \"require('./package.json').version\")"
-          echo "version=$PKG_VERSION" >> "$GITHUB_OUTPUT"
-
-      - name: Check if version already exists in npm
-        id: npm
-        run: |
-          if npm view "@sertxito/mcpee-cloud@${{ steps.pkg.outputs.version }}" version >/dev/null 2>&1; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "ℹ️ Version ${{ steps.pkg.outputs.version }} is already published"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            echo "✅ Version ${{ steps.pkg.outputs.version }} is new"
-          fi
-
-      - name: Check npm token availability
-        id: token
+      - name: Run semantic release
+        run: npm run release
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -n "$NPM_TOKEN" ]; then
-            echo "available=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "available=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Validate manifest
-        run: npm run validate:manifest
-
-      - name: Package dry run
-        run: npm pack --dry-run
-
-      - name: Publish package
-        if: steps.token.outputs.available == 'true' && steps.npm.outputs.exists == 'false'
-        run: npm publish --access public
-        env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Skip publish summary
-        if: steps.token.outputs.available != 'true' || steps.npm.outputs.exists != 'false'
-        run: |
-          if [ "${{ steps.token.outputs.available }}" != "true" ]; then
-            echo "⚠️ NPM_TOKEN is not configured. Skipping publish."
-          fi
-          if [ "${{ steps.npm.outputs.exists }}" != "false" ]; then
-            echo "ℹ️ Version already published. Skipping publish."
-          fi

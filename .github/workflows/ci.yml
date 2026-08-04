@@ -23,7 +23,8 @@ jobs:
 
       - name: Validate package metadata
         run: |
-          if [ "$(node -p \"require('./package.json').name\")" != "@sertxito/mcpee-cloud" ]; then
+          PKG_NAME="$(npm pkg get name | tr -d '"')"
+          if [ "$PKG_NAME" != "@sertxito/mcpee-cloud" ]; then
             echo "❌ package.json name must be @sertxito/mcpee-cloud"
             exit 1
           fi
