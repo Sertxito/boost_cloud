@@ -972,6 +972,36 @@
       ]
     },
     {
+      "id": "azure.operations.incident-triage",
+      "title": "Azure Incident Triage and Recovery",
+      "agent": "agents/azure-principal-architect.agent.md",
+      "skills": [
+        "skills/azure-resource-health-diagnose",
+        "skills/azure-well-architected-review"
+      ],
+      "instructions": [
+        "instructions/devops-core-principles.instructions.md",
+        "instructions/security-and-owasp.instructions.md"
+      ],
+      "providerNeeds": [
+        "logs-analysis",
+        "incident-response",
+        "telemetry"
+      ],
+      "specs": [
+        "specs/azure.operations.incident-triage.md"
+      ],
+      "prompts": [
+        "prompts/azure.operations.incident-triage.prompt.md"
+      ],
+      "evals": [
+        "evals/azure.operations.incident-triage.eval.json"
+      ],
+      "examples": [
+        "examples/azure.operations.incident-triage.example.md"
+      ]
+    },
+    {
       "id": "aws.reliability.disaster-recovery",
       "title": "AWS Reliability and Disaster Recovery",
       "agent": "agents/aws-principal-architect.agent.md",
@@ -999,6 +1029,36 @@
       ],
       "examples": [
         "examples/aws.reliability.disaster-recovery.example.md"
+      ]
+    },
+    {
+      "id": "aws.api-gateway.design",
+      "title": "AWS API Gateway Design and Management",
+      "agent": "agents/aws-principal-architect.agent.md",
+      "skills": [
+        "skills/cloud-design-patterns",
+        "skills/aws-well-architected-review"
+      ],
+      "instructions": [
+        "instructions/security-and-owasp.instructions.md",
+        "instructions/devops-core-principles.instructions.md"
+      ],
+      "providerNeeds": [
+        "api-governance",
+        "security-policy-design",
+        "integration-patterns"
+      ],
+      "specs": [
+        "specs/aws.api-gateway.design.md"
+      ],
+      "prompts": [
+        "prompts/aws.api-gateway.design.prompt.md"
+      ],
+      "evals": [
+        "evals/aws.api-gateway.design.eval.json"
+      ],
+      "examples": [
+        "examples/aws.api-gateway.design.example.md"
       ]
     },
     {

@@ -1,0 +1,140 @@
+name: Docs Freshness
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'  # every Monday 07:00 UTC
+  workflow_dispatch:
+    inputs:
+      update_baseline:
+        description: 'Update ETags/Last-Modified baseline in doc-sources.json'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check doc source links
+        id: check
+        run: node scripts/check-doc-links.mjs
+        continue-on-error: true  # drift is a warning; broken links set exit code 1
+
+      - name: Update baseline and commit
+        if: inputs.update_baseline == true
+        run: |
+          node scripts/check-doc-links.mjs --update
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/doc-sources.json
+          git diff --cached --quiet || git commit -m "chore: update doc-sources.json baseline [skip ci]"
+          git push
+
+      - name: Create issue for broken links
+        if: steps.check.outputs.broken_count != '0' && steps.check.outputs.broken_count != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `🔴 Broken doc links detected (${new Date().toISOString().slice(0,10)})`;
+            const body = [
+              '## Broken source URLs',
+              '',
+              'The following official documentation URLs returned errors. Review and update the affected instruction files.',
+              '',
+              process.env.BROKEN_SUMMARY,
+              '',
+              '> Triggered by the [Docs Freshness workflow](../actions/workflows/docs-freshness.yml)',
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['doc-freshness'],
+            });
+
+            const existing = issues.find(i => i.title.startsWith('🔴 Broken doc links'));
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+                title,
+              });
+              console.log(`Updated issue #${existing.number}`);
+            } else {
+              const { data: issue } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['doc-freshness'],
+              });
+              console.log(`Created issue #${issue.number}`);
+            }
+        env:
+          BROKEN_SUMMARY: ${{ steps.check.outputs.broken_summary }}
+
+      - name: Create issue for drifted docs
+        if: steps.check.outputs.drift_count != '0' && steps.check.outputs.drift_count != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `⚠️ Doc content drift detected (${new Date().toISOString().slice(0,10)})`;
+            const body = [
+              '## Official docs have changed',
+              '',
+              'The following source pages have a different ETag or Last-Modified than the stored baseline.',
+              'Review each instruction file and update its content if needed, then run the workflow with **Update baseline** enabled.',
+              '',
+              process.env.DRIFT_SUMMARY,
+              '',
+              '> Triggered by the [Docs Freshness workflow](../actions/workflows/docs-freshness.yml)',
+            ].join('\n');
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['doc-freshness'],
+            });
+
+            const existing = issues.find(i => i.title.startsWith('⚠️ Doc content drift'));
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+                title,
+              });
+              console.log(`Updated issue #${existing.number}`);
+            } else {
+              const { data: issue } = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['doc-freshness'],
+              });
+              console.log(`Created issue #${issue.number}`);
+            }
+        env:
+          DRIFT_SUMMARY: ${{ steps.check.outputs.drift_summary }}
+
+      - name: Fail on broken links
+        if: steps.check.outputs.broken_count != '0' && steps.check.outputs.broken_count != ''
+        run: |
+          echo "❌ ${{ steps.check.outputs.broken_count }} broken source URL(s) — see issue for details"
+          exit 1
