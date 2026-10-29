@@ -18,8 +18,7 @@ Agents, skills, instructions, prompts, specs, evals, and examples for cloud arch
 Every capability is fully wired in `boost.json` — no partial entries, no broken paths.
 See [docs/coverage-matrix.md](docs/coverage-matrix.md) for the full domain breakdown.
 
-## Installation
-
+## Quick Start
 This boost is **self-contained**: it does not need any runtime, plugin or MCP server. One command copies its assets to the places where GitHub Copilot / VS Code discover them automatically.
 
 ```bash
