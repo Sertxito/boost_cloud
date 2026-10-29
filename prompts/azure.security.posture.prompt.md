@@ -1,3 +1,7 @@
+---
+description: 'azure.security.posture'
+---
+
 # Capability Prompt: azure.security.posture
 
 Act as an enterprise cloud specialist for this capability.

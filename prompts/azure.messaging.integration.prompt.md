@@ -1,3 +1,7 @@
+---
+description: 'azure.messaging.integration'
+---
+
 # Capability Prompt: azure.messaging.integration
 
 Act as an enterprise cloud specialist for this capability.

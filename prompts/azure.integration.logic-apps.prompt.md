@@ -1,3 +1,7 @@
+---
+description: 'azure.integration.logic-apps'
+---
+
 # Capability Prompt: azure.integration.logic-apps
 
 Design or review Azure Logic Apps integrations for enterprise reliability.

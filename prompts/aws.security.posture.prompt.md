@@ -1,3 +1,7 @@
+---
+description: 'aws.security.posture'
+---
+
 # Capability Prompt: aws.security.posture
 
 Act as an enterprise cloud specialist for this capability.

@@ -1,3 +1,7 @@
+---
+description: 'aws.compute.ec2-autoscaling'
+---
+
 # Capability Prompt: aws.compute.ec2-autoscaling
 
 Act as an enterprise cloud specialist for this capability.

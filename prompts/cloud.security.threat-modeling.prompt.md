@@ -1,3 +1,7 @@
+---
+description: 'cloud.security.threat-modeling'
+---
+
 # Capability Prompt: cloud.security.threat-modeling
 
 Act as an enterprise cloud specialist for this capability.

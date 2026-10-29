@@ -1,3 +1,7 @@
+---
+description: 'azure.storage.design'
+---
+
 # Capability Prompt: azure.storage.design
 
 Act as an enterprise cloud specialist for this capability.

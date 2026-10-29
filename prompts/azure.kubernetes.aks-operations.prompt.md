@@ -1,3 +1,7 @@
+---
+description: 'azure.kubernetes.aks-operations'
+---
+
 # Capability Prompt: azure.kubernetes.aks-operations
 
 Act as an enterprise cloud specialist for this capability.

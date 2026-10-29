@@ -1,3 +1,7 @@
+---
+description: 'azure.identity.rbac-entra'
+---
+
 # Capability Prompt: azure.identity.rbac-entra
 
 Act as an enterprise cloud specialist for this capability.

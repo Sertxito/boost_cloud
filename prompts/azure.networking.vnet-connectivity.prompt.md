@@ -1,3 +1,7 @@
+---
+description: 'azure.networking.vnet-connectivity'
+---
+
 # Capability Prompt: azure.networking.vnet-connectivity
 
 Act as an enterprise cloud specialist for this capability.

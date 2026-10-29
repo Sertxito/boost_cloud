@@ -1,3 +1,7 @@
+---
+description: 'aws.architecture.review'
+---
+
 # Capability Prompt: aws.architecture.review
 
 Act as an enterprise cloud specialist for this capability.

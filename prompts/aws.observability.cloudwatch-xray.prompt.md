@@ -1,3 +1,7 @@
+---
+description: 'aws.observability.cloudwatch-xray'
+---
+
 # Capability Prompt: aws.observability.cloudwatch-xray
 
 Act as an enterprise cloud specialist for this capability.

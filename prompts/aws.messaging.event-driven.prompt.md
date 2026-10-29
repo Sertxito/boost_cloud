@@ -1,3 +1,7 @@
+---
+description: 'aws.messaging.event-driven'
+---
+
 # Capability Prompt: aws.messaging.event-driven
 
 Act as an enterprise cloud specialist for this capability.

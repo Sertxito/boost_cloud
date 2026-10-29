@@ -1,3 +1,7 @@
+---
+description: 'azure.cost.optimization'
+---
+
 # Capability Prompt: azure.cost.optimization
 
 Act as an enterprise cloud specialist for this capability.

@@ -36,7 +36,7 @@ async function headRequest(url) {
     const res = await fetch(url, {
       method: "HEAD",
       signal: controller.signal,
-      headers: { "User-Agent": "mcpee-cloud/doc-freshness-check" },
+      headers: { "User-Agent": "boost-cloud/doc-freshness-check" },
       redirect: "follow",
     });
     return { ok: res.ok, status: res.status, etag: res.headers.get("etag"), lastModified: res.headers.get("last-modified") };

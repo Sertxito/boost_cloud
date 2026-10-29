@@ -1,3 +1,7 @@
+---
+description: 'aws.networking.vpc-connectivity'
+---
+
 # Capability Prompt: aws.networking.vpc-connectivity
 
 Act as an enterprise cloud specialist for this capability.

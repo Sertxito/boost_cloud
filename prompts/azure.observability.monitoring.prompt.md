@@ -1,3 +1,7 @@
+---
+description: 'azure.observability.monitoring'
+---
+
 # Capability Prompt: azure.observability.monitoring
 
 Act as an enterprise cloud specialist for this capability.

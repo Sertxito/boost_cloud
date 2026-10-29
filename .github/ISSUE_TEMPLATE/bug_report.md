@@ -26,7 +26,7 @@ What happened instead?
 
 ## Affected Areas
 
-- [ ] `mcpee.json`
+- [ ] `boost.json`
 - [ ] agents
 - [ ] skills
 - [ ] instructions

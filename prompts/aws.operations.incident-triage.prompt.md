@@ -1,3 +1,7 @@
+---
+description: 'aws.operations.incident-triage'
+---
+
 # Capability Prompt: aws.operations.incident-triage
 
 Act as an enterprise cloud specialist for this capability.

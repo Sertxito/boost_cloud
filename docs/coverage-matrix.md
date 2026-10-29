@@ -1,6 +1,6 @@
 # Coverage Matrix v0.1.0
 
-This matrix describes the implemented capability coverage in `mcpee-cloud` for Azure and AWS.
+This matrix describes the implemented capability coverage in `boost-cloud` for Azure and AWS.
 
 ## Summary
 
@@ -80,6 +80,6 @@ This matrix describes the implemented capability coverage in `mcpee-cloud` for A
 
 ## Notes
 
-- All capabilities in `mcpee.json` are wired with matching `specs`, `prompts`, `evals`, and `examples` files.
+- All capabilities in `boost.json` are wired with matching `specs`, `prompts`, `evals`, and `examples` files.
 - Validation command: `npm run validate`.
 - Manifest reference integrity command: `npm run validate:manifest`.

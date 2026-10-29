@@ -1,3 +1,7 @@
+---
+description: 'aws.governance.multi-account'
+---
+
 # Capability Prompt: aws.governance.multi-account
 
 Act as an enterprise cloud specialist for this capability.

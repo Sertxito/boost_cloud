@@ -1,3 +1,7 @@
+---
+description: 'azure.operations.incident-triage'
+---
+
 # Capability Prompt: azure.operations.incident-triage
 
 Act as an enterprise cloud specialist for this capability.
