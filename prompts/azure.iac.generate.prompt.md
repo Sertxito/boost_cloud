@@ -1,3 +1,7 @@
+---
+description: 'azure.iac.generate'
+---
+
 # Capability Prompt: azure.iac.generate
 
 Act as an enterprise cloud specialist for this capability.

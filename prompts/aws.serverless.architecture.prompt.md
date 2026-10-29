@@ -1,3 +1,7 @@
+---
+description: 'aws.serverless.architecture'
+---
+
 # Capability Prompt: aws.serverless.architecture
 
 Act as an enterprise cloud specialist for this capability.

@@ -1,15 +1,14 @@
 {
-  "name": "mcpee-cloud",
+  "name": "boost-cloud",
   "version": "0.1.0",
-  "description": "MCPEE Cloud Boost for Azure and AWS: agents, skills, prompts, specs and evals for enterprise cloud architecture and operations.",
+  "description": "Cloud Boost for Azure and AWS: agents, skills, prompts, specs and evals for enterprise cloud architecture and operations.",
   "type": "module",
-  "main": "index.js",
   "exports": {
-    ".": "./index.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./boost.json": "./boost.json"
   },
   "files": [
-    "mcpee.json",
+    "boost.json",
     "agents",
     "instructions",
     "specs",
@@ -19,7 +18,8 @@
     "examples",
     "scripts",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    ".github/copilot-instructions.md"
   ],
   "scripts": {
     "validate:manifest": "node scripts/validate-manifest.mjs",
@@ -28,10 +28,11 @@
     "pack:check": "npm pack --dry-run",
     "validate": "npm run validate:manifest && npm run pack:check",
     "quality": "npm run validate",
-    "release": "npm publish --access public"
+    "release": "npm publish --access public",
+    "boost:install": "node scripts/install.mjs",
+    "boost:check": "node scripts/install.mjs --check"
   },
   "keywords": [
-    "mcpee",
     "cloud",
     "azure",
     "aws",
@@ -39,7 +40,10 @@
     "devops",
     "well-architected",
     "agents",
-    "skills"
+    "skills",
+    "copilot",
+    "github-copilot",
+    "agent-skills"
   ],
   "author": "Sertxito",
   "license": "MIT",
@@ -55,12 +59,7 @@
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
   },
-  "peerDependencies": {
-    "@mcpee/core": "^0.1.0"
-  },
-  "peerDependenciesMeta": {
-    "@mcpee/core": {
-      "optional": true
-    }
+  "bin": {
+    "boost-cloud": "scripts/install.mjs"
   }
 }

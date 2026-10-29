@@ -1,3 +1,7 @@
+---
+description: 'azure.api-management.design'
+---
+
 # Capability Prompt: azure.api-management.design
 
 Act as an enterprise cloud specialist for this capability.

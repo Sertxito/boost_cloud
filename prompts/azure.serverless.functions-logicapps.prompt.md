@@ -1,3 +1,7 @@
+---
+description: 'azure.serverless.functions-logicapps'
+---
+
 # Capability Prompt: azure.serverless.functions-logicapps
 
 Act as an enterprise cloud specialist for this capability.

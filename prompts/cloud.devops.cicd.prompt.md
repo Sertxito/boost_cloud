@@ -1,3 +1,7 @@
+---
+description: 'cloud.devops.cicd'
+---
+
 # Capability Prompt: cloud.devops.cicd
 
 Act as an enterprise cloud specialist for this capability.

@@ -282,12 +282,12 @@ const capabilities = [
 
 const manifest = {
   schemaVersion: "1.0",
-  name: "mcpee-cloud",
+  name: "boost-cloud",
   version: "0.1.0",
   type: "boost",
   domain: "cloud",
   description:
-    "MCPEE Cloud Boost for Azure and AWS with enterprise architecture, IaC, identity, networking, security, data, operations, resilience and DevOps capabilities.",
+    "Cloud Boost for Azure and AWS with enterprise architecture, IaC, identity, networking, security, data, operations, resilience and DevOps capabilities.",
   capabilities: capabilities.map((cap) => ({
     ...cap,
     specs: [`specs/${cap.id}.md`],
@@ -305,7 +305,7 @@ for (const dir of ["specs", "prompts", "evals", "examples"]) {
   fs.mkdirSync(path.join(root, dir), { recursive: true });
 }
 
-writeJson("mcpee.json", manifest);
+writeJson("boost.json", manifest);
 
 for (const cap of capabilities) {
   const spec = `# Spec: ${cap.id}\n\n## Scope\n${cap.title}\n\n## Non-negotiables\n- Findings must be evidence-based.\n- Recommendations must be actionable and prioritized.\n- Output must include security, reliability and operational guidance.\n`;

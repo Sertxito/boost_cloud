@@ -1,3 +1,7 @@
+---
+description: 'cloud.reliability.disaster-recovery'
+---
+
 # Capability Prompt: cloud.reliability.disaster-recovery
 
 Act as an enterprise cloud specialist for this capability.

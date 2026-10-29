@@ -2,10 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const manifestPath = path.join(root, "mcpee.json");
+const manifestPath = path.join(root, "boost.json");
 
 if (!fs.existsSync(manifestPath)) {
-  console.error("ERROR: mcpee.json was not found at repository root.");
+  console.error("ERROR: boost.json was not found at repository root.");
   process.exit(1);
 }
 
@@ -32,7 +32,7 @@ for (const capability of manifest.capabilities || []) {
 }
 
 if (missing.length > 0) {
-  console.error("ERROR: mcpee.json contains references to missing files:\n");
+  console.error("ERROR: boost.json contains references to missing files:\n");
   for (const item of missing) {
     console.error(`- ${item.capability} [${item.kind}] -> ${item.file}`);
   }

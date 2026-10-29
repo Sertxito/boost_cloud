@@ -1,3 +1,7 @@
+---
+description: 'aws.cost.optimization'
+---
+
 # Capability Prompt: aws.cost.optimization
 
 Act as an enterprise cloud specialist for this capability.

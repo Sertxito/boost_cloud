@@ -1,3 +1,7 @@
+---
+description: 'azure.governance.policy-review'
+---
+
 # Capability Prompt: azure.governance.policy-review
 
 Act as an enterprise cloud specialist for this capability.

@@ -1,3 +1,7 @@
+---
+description: 'azure.data.platform'
+---
+
 # Capability Prompt: azure.data.platform
 
 Act as an enterprise cloud specialist for this capability.

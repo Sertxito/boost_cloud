@@ -1,3 +1,7 @@
+---
+description: 'aws.storage.s3-efs'
+---
+
 # Capability Prompt: aws.storage.s3-efs
 
 Act as an enterprise cloud specialist for this capability.

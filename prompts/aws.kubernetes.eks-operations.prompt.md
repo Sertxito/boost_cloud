@@ -1,3 +1,7 @@
+---
+description: 'aws.kubernetes.eks-operations'
+---
+
 # Capability Prompt: aws.kubernetes.eks-operations
 
 Act as an enterprise cloud specialist for this capability.

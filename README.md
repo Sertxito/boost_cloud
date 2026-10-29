@@ -1,9 +1,9 @@
-# mcpee-cloud
+# boost-cloud
 
 [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 [![Docs Freshness](../../actions/workflows/docs-freshness.yml/badge.svg)](../../actions/workflows/docs-freshness.yml)
 
-Cloud boost for MCPEE — 36 enterprise capabilities covering Azure and AWS, ready to plug into any MCPEE-compatible agent runtime.
+Cloud boost for GitHub Copilot — 36 enterprise capabilities covering Azure and AWS. Standalone: one command installs agents, skills, prompts and instructions where Copilot discovers them.
 
 ## Overview
 
@@ -15,23 +15,38 @@ Agents, skills, instructions, prompts, specs, evals, and examples for cloud arch
 | Azure | 15 |
 | AWS | 17 |
 
-Every capability is fully wired in `mcpee.json` — no partial entries, no broken paths.
+Every capability is fully wired in `boost.json` — no partial entries, no broken paths.
 See [docs/coverage-matrix.md](docs/coverage-matrix.md) for the full domain breakdown.
 
 ## Quick Start
+This boost is **self-contained**: it does not need any runtime, plugin or MCP server. One command copies its assets to the places where GitHub Copilot / VS Code discover them automatically.
 
 ```bash
-npm install mcpee-cloud
-# Optional: install the MCPEE core runtime when you need it
-npm install @mcpee/core
+# From the root of YOUR project
+npx github:Sertxito/boost_cloud
+# or, once published on npm
+npx boost-cloud
 ```
+
+| Asset | Installed into |
+|---|---|
+| Agents | `.github/agents/*.agent.md` |
+| Skills | `.github/skills/<name>/SKILL.md` and `.agents/skills/<name>/SKILL.md` |
+| Prompts | `.github/prompts/*.prompt.md` |
+| Instructions | `.github/instructions/*.instructions.md` |
+| Global instructions | `.github/copilot-instructions.md` (only if the project has none) |
+
+Options: `--target <dir>`, `--force` (overwrite), `--dry-run`, `--no-agents-dir` (skip `.agents/skills`), `--check` (verify install), `--uninstall`.
+Existing files are never overwritten without `--force`, so several boosts can coexist in the same project.
+
+**Verify:** run `npx boost-cloud --check`, reload VS Code (`Developer: Reload Window`), then type `@` in Copilot Chat (agents), `/` (prompts) and open the *Configure Tools / Skills* picker.
 
 ## Scripts
 
 | Command | What it does |
 |---|---|
 | `npm run validate` | Manifest integrity + dry-run pack |
-| `npm run validate:manifest` | Checks all paths in `mcpee.json` exist on disk |
+| `npm run validate:manifest` | Checks all paths in `boost.json` exist on disk |
 | `npm run pack:check` | Dry-run `npm pack` to catch missing `files` entries |
 | `npm run check:docs` | HEAD-checks all official source URLs in `docs/doc-sources.json` |
 | `npm run check:docs:update` | Same check, then writes new ETags/Last-Modified as baseline |
@@ -49,7 +64,7 @@ examples/          expected output shapes
 docs/
   coverage-matrix.md   domain coverage overview
   doc-sources.json     official source URL registry for freshness tracking
-mcpee.json         capability manifest (source of truth)
+boost.json         capability manifest (source of truth)
 ```
 
 ## Doc Freshness
@@ -69,14 +84,7 @@ Or trigger the `docs-freshness` workflow manually with **Update baseline** enabl
 
 ## Local Customization
 
-Do not edit files directly inside `node_modules/mcpee-cloud`. Use project-level override folders:
-
-```text
-.mcpee/generated-skills/cloud/
-.mcpee/overrides/cloud/
-.mcpee/knowledge/
-.mcpee/memory/
-```
+Installed files are plain files in your project (`.github/`). Edit them freely; re-run with `--force` to restore the originals.
 
 ## Contributing
 
@@ -85,3 +93,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Security
 
 See [SECURITY.md](SECURITY.md).
+
+## Naming and collisions
+
+Installed assets are prefixed with `cloud-` (e.g. `.github/agents/cloud-<name>.agent.md`, `.github/skills/cloud-<name>/`) so several boosts can live in the same project, and internal references are rewritten to match.
+
+- Nothing that already exists in the target is overwritten: each ignored file is reported with a `[WARN] ... already existed ... IGNORED` message. Use `--force` to overwrite.
+- An existing `.github/copilot-instructions.md` is kept; the boost's global guidance is installed as `cloud-global.instructions.md` instead.
+- Re-running the installer is safe; `--check` and `--uninstall` work from the manifest.
+

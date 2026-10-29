@@ -1,3 +1,7 @@
+---
+description: 'aws.data.rds-dynamodb'
+---
+
 # Capability Prompt: aws.data.rds-dynamodb
 
 Act as an enterprise cloud specialist for this capability.

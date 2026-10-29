@@ -197,7 +197,7 @@
         "lastModified": null
       },
       {
-        "url": "https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-syntax-for-github-actions",
+        "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
         "label": "GitHub Actions Workflow Syntax",
         "lastChecked": null,
         "etag": null,

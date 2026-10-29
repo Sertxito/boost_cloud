@@ -21,7 +21,7 @@ Describe what this PR changes and why.
 ## Capability Impact
 
 - [ ] No capability changes
-- [ ] Updated `mcpee.json`
+- [ ] Updated `boost.json`
 - [ ] Added/updated linked artifacts (specs/prompts/evals/examples)
 
 ## Checklist

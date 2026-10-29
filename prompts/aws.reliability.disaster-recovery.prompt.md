@@ -1,3 +1,7 @@
+---
+description: 'aws.reliability.disaster-recovery'
+---
+
 # Capability Prompt: aws.reliability.disaster-recovery
 
 Act as an enterprise cloud specialist for this capability.

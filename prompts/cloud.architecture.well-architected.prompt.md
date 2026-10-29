@@ -1,3 +1,7 @@
+---
+description: 'cloud.architecture.well-architected'
+---
+
 # Capability Prompt: cloud.architecture.well-architected
 
 Act as an enterprise cloud specialist for this capability.

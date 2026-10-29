@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "name": "mcpee-cloud",
+  "name": "boost-cloud",
   "version": "0.1.0",
   "type": "boost",
   "domain": "cloud",
-  "description": "MCPEE Cloud Boost for Azure and AWS with enterprise architecture, IaC, identity, networking, security, data, operations, resilience and DevOps capabilities.",
+  "description": "Cloud Boost for Azure and AWS with enterprise architecture, IaC, identity, networking, security, data, operations, resilience and DevOps capabilities.",
   "capabilities": [
     {
       "id": "cloud.architecture.well-architected",

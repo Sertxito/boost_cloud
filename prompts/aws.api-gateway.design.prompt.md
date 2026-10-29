@@ -1,3 +1,7 @@
+---
+description: 'aws.api-gateway.design'
+---
+
 # Capability Prompt: aws.api-gateway.design
 
 Act as an enterprise cloud specialist for this capability.

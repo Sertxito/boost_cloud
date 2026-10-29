@@ -1,3 +1,7 @@
+---
+description: 'azure.compute.vm-vmss'
+---
+
 # Capability Prompt: azure.compute.vm-vmss
 
 Act as an enterprise cloud specialist for this capability.

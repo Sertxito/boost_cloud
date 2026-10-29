@@ -1,3 +1,7 @@
+---
+description: 'aws.identity.iam'
+---
+
 # Capability Prompt: aws.identity.iam
 
 Act as an enterprise cloud specialist for this capability.

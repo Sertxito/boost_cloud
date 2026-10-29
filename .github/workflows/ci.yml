@@ -24,8 +24,8 @@ jobs:
       - name: Validate package metadata
         run: |
           PKG_NAME="$(npm pkg get name | tr -d '"')"
-          if [ "$PKG_NAME" != "mcpee-cloud" ]; then
-            echo "❌ package.json name must be mcpee-cloud"
+          if [ "$PKG_NAME" != "boost-cloud" ]; then
+            echo "❌ package.json name must be boost-cloud"
             exit 1
           fi
           echo "✅ package.json name is correct"

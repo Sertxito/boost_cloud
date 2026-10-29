@@ -1,4 +1,4 @@
-# Contributing to mcpee-cloud
+# Contributing to boost-cloud
 
 Thank you for contributing.
 
@@ -42,8 +42,8 @@ npm run check:docs
 
 ## Capability Integrity Rules
 
-- Keep `mcpee.json` as the source of truth.
-- Every capability path in `mcpee.json` must exist on disk.
+- Keep `boost.json` as the source of truth.
+- Every capability path in `boost.json` must exist on disk.
 - Avoid partial capability additions (agent without specs/prompts/evals/examples).
 - New capabilities must appear in [docs/coverage-matrix.md](docs/coverage-matrix.md).
 
